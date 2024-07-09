@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="{% get_media_prefix %}img/favicon.png" type="image/png">
+    <link rel="icon" href={{ favicon_image.url }}>
     <title> {{ site_title }} </title>
     <meta name="keywords" content="{{ site_keywords }}">
     <meta name="description" content="{{ site_description }}">
@@ -32,8 +32,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container box_1620">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="{% url 'index' %}"><img src="{% get_media_prefix %}img/logo.png"
-                                                                      alt=""></a>
+                <a class="navbar-brand logo_h" href="{% url 'index' %}"><img src={{ home_logo_image.url }}></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -74,7 +73,7 @@
                 </aside>
             </div>
             <div class=col-lg-3>
-                
+
             </div>
             <div class="col-lg-3">
                 <aside class="f_widget social_widget">
