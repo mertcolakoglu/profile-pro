@@ -24,3 +24,25 @@ class ImageSettingsAdmin(admin.ModelAdmin):
 
     class Meta:
         model = ImageSetting
+
+
+@admin.register(SkillSetting)
+class SkillSettingsAdmin(admin.ModelAdmin):
+
+    list_display = ['id', 'skill', 'description', 'percentage', 'updated_date', 'created_date']
+    search_fields = ['skill', 'description', 'percentage']
+    list_editable = ('skill', 'description', 'percentage')
+
+    class Meta:
+        model = SkillSetting
+
+
+@admin.register(ExperienceSetting)
+class ExperienceSettingsAdmin(admin.ModelAdmin):
+
+    list_display = ['id', 'company_name', 'job_position', 'job_location', 'start_date', 'end_date']
+    search_fields = ['company_name', 'job_position', 'job_location']
+    list_editable = ('company_name', 'job_position', 'job_location', 'start_date', 'end_date')
+
+    class Meta:
+        model = ExperienceSetting

@@ -53,51 +53,21 @@
                 <div class="col-lg-6">
                     <div class="tools_expert">
                         <div class="skill_main">
+                            
+                            {% for skill in skills %}
+                            
                             <div class="skill_item">
-                                <h4>After Effects <span class="counter">85</span>%</h4>
+                                <h4> {{ skill.skill }} <span class="counter"> {{ skill.percentage }} </span>%</h4>
                                 <div class="progress_br">
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="85"
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ skill.percentage }}"
                                              aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="skill_item">
-                                <h4>Photoshop <span class="counter">90</span>%</h4>
-                                <div class="progress_br">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="90"
-                                             aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill_item">
-                                <h4>Illustrator <span class="counter">70</span>%</h4>
-                                <div class="progress_br">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="70"
-                                             aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill_item">
-                                <h4>Sublime <span class="counter">95</span>%</h4>
-                                <div class="progress_br">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="95"
-                                             aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="skill_item">
-                                <h4>Sketch <span class="counter">75</span>%</h4>
-                                <div class="progress_br">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="75"
-                                             aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
+                            
+                            {% endfor %}
+
                         </div>
                     </div>
                 </div>
@@ -123,44 +93,32 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <ul class="list">
-                            <li>
-                                <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>March 2017 to present</p>
+                           {% for experience in experiences %}
+                                <li>
+                                    <span></span>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <p> {{ experience.start_date | date:"M Y" }} - 
+                                            {% if experience.end_date %}
+                                                {{ experience.end_date | date:"M Y" }}
+                                            {% else %}
+                                                Present
+                                            {% endif %}
+                                            </p>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4>{{ experience.company_name }}</h4>
+                                            <p> {{ experience.job_position }} <br/> {{ experience.job_location }}</p>
+                                        </div>
                                     </div>
-                                    <div class="media-body">
-                                        <h4>Colorlib</h4>
-                                        <p>Senior Web Developer <br/>Santa monica, Los angeles</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>March 2017 to present</p>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Colorlib</h4>
-                                        <p>Senior Web Developer <br/>Santa monica, Los angeles</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>March 2017 to present</p>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Colorlib</h4>
-                                        <p>Senior Web Developer <br/>Santa monica, Los angeles</p>
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
+                            {% endfor %}
                         </ul>
                     </div>
+                    
+                    
+                    
+                    
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <ul class="list">
                             <li>
@@ -175,30 +133,8 @@
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>March 2017 to present</p>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Colorlib</h4>
-                                        <p>Senior Web Developer <br/>Santa monica, Los angeles</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>March 2017 to present</p>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Colorlib</h4>
-                                        <p>Senior Web Developer <br/>Santa monica, Los angeles</p>
-                                    </div>
-                                </div>
-                            </li>
+                            
+                            
                         </ul>
                     </div>
                 </div>
