@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from mainapp.models import GeneralSetting, ImageSetting, SkillSetting, ExperienceSetting
+from mainapp.models import GeneralSetting, ImageSetting, SkillSetting, ExperienceSetting, EducationSetting
 
 
 def index(request):
@@ -26,6 +26,9 @@ def index(request):
     # Experience Settings
     experiences = ExperienceSetting.objects.all().order_by('-start_date')
 
+    # Education Settings
+    educations = EducationSetting.objects.all().order_by('-start_date')
+
 
     context = {
         'site_title': site_title,
@@ -41,6 +44,7 @@ def index(request):
         'home_logo_image': home_logo_image,
         'skills': skills,
         'experiences': experiences,
+        'educations': educations,
 
     }
 

@@ -46,3 +46,14 @@ class ExperienceSettingsAdmin(admin.ModelAdmin):
 
     class Meta:
         model = ExperienceSetting
+
+
+@admin.register(EducationSetting)
+class EducationSettingsAdmin(admin.ModelAdmin):
+
+    list_display = ['id', 'school_name', 'major', 'department', 'start_date', 'end_date']
+    search_fields = ['school_name', 'major', 'department']
+    list_editable = ('school_name', 'major', 'department', 'start_date', 'end_date')
+
+    class Meta:
+        model = EducationSetting

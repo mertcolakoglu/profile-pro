@@ -67,3 +67,19 @@ class ExperienceSetting(AbstractBaseModel):
         verbose_name = 'Experience Setting'
         verbose_name_plural = 'Experience Settings'
         ordering = ('-start_date', )
+
+
+class EducationSetting(AbstractBaseModel):
+    school_name = models.CharField(default='', max_length=254, blank=True, verbose_name='School Name', help_text='School Name',)
+    major = models.CharField(default='', max_length=254, blank=True, verbose_name='Major', help_text='Major',)
+    department = models.CharField(default='', max_length=254, blank=True, verbose_name='Department', help_text='Department',)
+    start_date = models.DateField(verbose_name='Start Date', help_text='Start Date',)
+    end_date = models.DateField(default=None, null=True, blank=True, verbose_name='End Date', help_text='End Date',)
+
+    def __str__(self):
+        return f'Education Settings: {self.school_name}'
+
+    class Meta:
+        verbose_name = 'Education Setting'
+        verbose_name_plural = 'Education Settings'
+        ordering = ('-start_date', )
