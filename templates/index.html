@@ -25,9 +25,9 @@
                                     <li><a href="javascript:void(0)"><i class="lnr lnr-home"></i> Buca, İZMİR</a></li>
                                 </ul>
                                 <ul class="list personal_social">
-                                    <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="https://x.com/mertm3rt" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                    {% for social in social_media %}
+                                    <li><a href="{{ social.url }}" target="_blank">{{ social.icon|safe }}</a></li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>

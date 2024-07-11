@@ -83,3 +83,17 @@ class EducationSetting(AbstractBaseModel):
         verbose_name = 'Education Setting'
         verbose_name_plural = 'Education Settings'
         ordering = ('-start_date', )
+
+
+class SocialMediaSetting(AbstractBaseModel):
+    name = models.CharField(default='', max_length=100, blank=True, verbose_name='Name', help_text='Name',)
+    url = models.URLField(default='', verbose_name='Url', help_text='Url',)
+    icon = models.CharField(default='', max_length=254, blank=True, verbose_name='Icon', help_text='Icon',)
+
+    def __str__(self):
+        return f'Social Media Settings: {self.name}'
+
+    class Meta:
+        verbose_name = 'Social Media Setting'
+        verbose_name_plural = 'Social Media Settings'
+        ordering = ('name', )

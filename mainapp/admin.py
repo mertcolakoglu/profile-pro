@@ -57,3 +57,14 @@ class EducationSettingsAdmin(admin.ModelAdmin):
 
     class Meta:
         model = EducationSetting
+
+
+@admin.register(SocialMediaSetting)
+class SocialMediaSettingsAdmin(admin.ModelAdmin):
+
+    list_display = ['id', 'name', 'url', 'icon', 'updated_date', 'created_date']
+    search_fields = ['name', 'url', 'icon']
+    list_editable = ('name', 'url', 'icon')
+
+    class Meta:
+        model = SocialMediaSetting

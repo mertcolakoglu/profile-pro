@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from mainapp.models import GeneralSetting, ImageSetting, SkillSetting, ExperienceSetting, EducationSetting
+from mainapp.models import GeneralSetting, ImageSetting, SkillSetting, ExperienceSetting, EducationSetting, SocialMediaSetting
 
 
 def index(request):
@@ -29,6 +29,9 @@ def index(request):
     # Education Settings
     educations = EducationSetting.objects.all().order_by('-start_date')
 
+    # Social Media Settings
+    social_media = SocialMediaSetting.objects.all()
+
 
     context = {
         'site_title': site_title,
@@ -45,6 +48,7 @@ def index(request):
         'skills': skills,
         'experiences': experiences,
         'educations': educations,
+        'social_media': social_media,
 
     }
 
