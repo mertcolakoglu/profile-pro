@@ -19,11 +19,11 @@
                                 <h3>{{ home_banner_person_name }}</h3>
                                 <h4>{{ home_banner_job_position | linebreaks }}</h4>
                                 <ul class="list basic_info">
-                                    
+
                                     {% for info in personal_information %}
                                         {% if info.name == 'birthday' %}
                                             <li><a href="javascript:void(0)"><i class="lnr lnr-calendar-full"></i>{{info.second_parameter}}</a></li>
-                                        {% elif info.name == 'phone' %}  
+                                        {% elif info.name == 'phone' %}
                                             <li><a href="tel:+9{{info.firs_parameter}}"><i class="lnr lnr-phone-handset"></i>{{info.second_parameter}}</a></li>
                                         {% elif info.name == 'mail' %}
                                             <li><a href="mailto:{{info.firs_parameter}}"><i class="lnr lnr-envelope"></i>{{info.second_parameter}}</a></li>
@@ -31,10 +31,10 @@
                                             <li><a href="javascript:void(0)"><i class="lnr lnr-home"></i>{{info.second_parameter}}</a></li>
                                         {% endif %}
                                     {% endfor %}
-                                    
-                                    
-                                    
-                                    
+
+
+
+
                                 </ul>
                                 <ul class="list personal_social">
                                     {% for social in social_media %}
@@ -57,7 +57,8 @@
                 <div class="col-lg-6">
                     <div class="welcome_text">
                         <h4>About Myself</h4>
-                        <p>{{about_myself_welcome}}</p>
+
+                        <p style="text-align: justify">{{about_myself_welcome}}</p>
                     </div>
                 </div>
                 <div class="col-lg-6">

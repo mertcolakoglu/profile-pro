@@ -79,3 +79,14 @@ class SocialMediaSettingsAdmin(admin.ModelAdmin):
 
     class Meta:
         model = SocialMediaSetting
+
+
+@admin.register(UploadSetting)
+class UploadSettingsAdmin(admin.ModelAdmin):
+
+    list_display = ['id', 'slug', 'description', 'button_text', 'file', 'updated_date', 'created_date']
+    search_fields = ['slug', 'button_text']
+    list_editable = ('description', 'button_text', 'file')
+
+    class Meta:
+        model = UploadSetting

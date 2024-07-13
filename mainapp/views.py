@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 
 from mainapp.models import (GeneralSetting, ImageSetting, SkillSetting, ExperienceSetting,
-                            EducationSetting, SocialMediaSetting, PersonalInformationSetting)
+                            EducationSetting, SocialMediaSetting, PersonalInformationSetting, UploadSetting)
 
 
 def index(request, num_spaces=4):
@@ -35,6 +35,9 @@ def index(request, num_spaces=4):
     social_media = SocialMediaSetting.objects.all()
     portfolio = SocialMediaSetting.objects.get(name='github_repo').url
 
+    # Upload Settings
+    upload_file = UploadSetting.objects.all()
+
     context = {
         'site_title': site_title,
         'site_keywords': site_keywords,
@@ -51,8 +54,13 @@ def index(request, num_spaces=4):
         'social_media': social_media,
         'portfolio': portfolio,
         'personal_information': personal_information,
+        'upload_file': upload_file,
 
     }
 
     return render(request, 'index.html', context=context)
 
+
+def redirect_urls(request, slug):
+    doc = get_object_or_404(UploadSetting, slug=slug)
+    return redirect(doc.file.url)

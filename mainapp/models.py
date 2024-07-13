@@ -112,3 +112,18 @@ class SocialMediaSetting(AbstractBaseModel):
         verbose_name = 'Social Media Setting'
         verbose_name_plural = 'Social Media Settings'
         ordering = ('name', )
+
+
+class UploadSetting(AbstractBaseModel):
+    slug = models.SlugField(default='', max_length=100, blank=True, verbose_name='Slug', help_text='Slug',)
+    description = models.CharField(default='', max_length=254, blank=True, verbose_name='Description', help_text='Description',)
+    file = models.FileField(default='', upload_to='files/', blank=True, verbose_name='File', help_text='File',)
+    button_text = models.CharField(default='', max_length=100, blank=True, verbose_name='Button Text', help_text='Button Text',)
+
+    def __str__(self):
+        return f'Upload Settings: {self.slug}'
+
+    class Meta:
+        verbose_name = 'Upload Setting'
+        verbose_name_plural = 'Upload Settings'
+        ordering = ('slug', )
