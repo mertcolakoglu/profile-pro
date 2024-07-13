@@ -15,6 +15,17 @@ class GeneralSettingsAdmin(admin.ModelAdmin):
         model = GeneralSetting
 
 
+@admin.register(PersonalInformationSetting)
+class PersonalInformationSettingsAdmin(admin.ModelAdmin):
+
+    list_display = ['id', 'name', 'firt_parameter', 'second_parameter', 'order', 'updated_date', 'created_date']
+    search_fields = ['name', 'firt_parameter', 'second_parameter', 'order']
+    list_editable = ('firt_parameter', 'second_parameter', 'order')
+
+    class Meta:
+        model = PersonalInformationSetting
+
+
 @admin.register(ImageSetting)
 class ImageSettingsAdmin(admin.ModelAdmin):
 

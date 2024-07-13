@@ -14,7 +14,7 @@ class AbstractBaseModel(models.Model):
 class GeneralSetting(AbstractBaseModel):
     name = models.CharField(default='', max_length=100, blank=True, verbose_name='Name', help_text='Name',)
     description = models.CharField(default='', max_length=254, blank=True, verbose_name='Description', help_text='Description',)
-    parameters = models.TextField(default='',max_length=254, blank=True, verbose_name='Parameters', help_text='Parameters',)
+    parameters = models.TextField(default='', blank=True, verbose_name='Parameters', help_text='Parameters',)
 
     def __str__(self):
         return f'General Settings: {self.name}'
@@ -23,6 +23,21 @@ class GeneralSetting(AbstractBaseModel):
         verbose_name = 'General Setting'
         verbose_name_plural = 'General Settings'
         ordering = ('name',)
+
+
+class PersonalInformationSetting(AbstractBaseModel):
+    name = models.CharField(default='', max_length=100, blank=True, verbose_name='Name', help_text='Name',)
+    firt_parameter = models.CharField(default='', max_length=254, blank=True, verbose_name='First Parameter', help_text='First Parameter',)
+    second_parameter = models.CharField(default='', max_length=254, blank=True, verbose_name='Second Parameter', help_text='Second Parameter',)
+    order = models.IntegerField(default=0, blank=True, verbose_name='Order', help_text='Order',)
+
+    def __str__(self):
+        return f'Personal Information Settings: {self.name}'
+
+    class Meta:
+        verbose_name = 'Personal Information Setting'
+        verbose_name_plural = 'Personal Information Settings'
+        ordering = ('order',)
 
 
 class ImageSetting(AbstractBaseModel):

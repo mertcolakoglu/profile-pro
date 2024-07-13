@@ -1,9 +1,10 @@
 from django.shortcuts import render
 
-from mainapp.models import GeneralSetting, ImageSetting, SkillSetting, ExperienceSetting, EducationSetting, SocialMediaSetting
+from mainapp.models import (GeneralSetting, ImageSetting, SkillSetting, ExperienceSetting,
+                            EducationSetting, SocialMediaSetting, PersonalInformationSetting)
 
 
-def index(request):
+def index(request, num_spaces=4):
 
     # General Settings
     site_title = GeneralSetting.objects.get(name='site_title').parameters
@@ -12,8 +13,9 @@ def index(request):
     home_banner_person_name = GeneralSetting.objects.get(name='home_banner_person_name').parameters
     home_banner_job_position = GeneralSetting.objects.get(name= 'home_banner_job_position').parameters
     about_myself_welcome = GeneralSetting.objects.get(name='about_myself_welcome').parameters
-    about_myself_welcome_2 = GeneralSetting.objects.get(name='about_myself_welcome').parameters
-    about_myself_welcome_3 = GeneralSetting.objects.get(name='about_myself_welcome').parameters
+
+    # Personal Information Settings
+    personal_information = PersonalInformationSetting.objects.all()
 
     # Image Settings
     home_banner_person_image = ImageSetting.objects.get(name='home_banner_person_image').image
@@ -31,7 +33,7 @@ def index(request):
 
     # Social Media Settings
     social_media = SocialMediaSetting.objects.all()
-
+    portfolio = SocialMediaSetting.objects.get(name='github_repo').url
 
     context = {
         'site_title': site_title,
@@ -40,8 +42,6 @@ def index(request):
         'home_banner_person_name': home_banner_person_name,
         'home_banner_job_position': home_banner_job_position,
         'about_myself_welcome': about_myself_welcome,
-        'about_myself_welcome_2': about_myself_welcome_2,
-        'about_myself_welcome_3': about_myself_welcome_3,
         'home_banner_person_image': home_banner_person_image,
         'favicon_image': favicon_image,
         'home_logo_image': home_logo_image,
@@ -49,6 +49,8 @@ def index(request):
         'experiences': experiences,
         'educations': educations,
         'social_media': social_media,
+        'portfolio': portfolio,
+        'personal_information': personal_information,
 
     }
 
