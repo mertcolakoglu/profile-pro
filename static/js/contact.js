@@ -1,13 +1,12 @@
 $(document).ready(function(){
-    
+    console.log('contact.js loaded');
     (function($) {
         "use strict";
 
-    
+
     jQuery.validator.addMethod('answercheck', function (value, element) {
         return this.optional(element) || /^\bcat\b$/.test(value)
     }, "type the correct answer -_-");
-
     // validate contactForm form
     $(function() {
         $('#contactForm').validate({
@@ -60,7 +59,6 @@ $(document).ready(function(){
                     data: $(form).serialize(),
                     url:"/contact/contact_form",
                     success: function(response) {
-                        console.log(response);
                         if (response.success) {
                             $('#contactForm :input').attr('disabled', 'disabled');
                             $('#contactForm').fadeTo( "slow", 1, function() {
@@ -70,15 +68,13 @@ $(document).ready(function(){
                                 $('.modal').modal('hide');
                                 $('#success').modal('show');
                             })
-                        }
-                        else {
+                        } else {
                             $('#contactForm').fadeTo( "slow", 1, function() {
                                 $('#error').fadeIn()
                                 $('.modal').modal('hide');
                                 $('#error').modal('show');
                             })
                         }
-
 
                     },
                     error: function() {
